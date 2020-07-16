@@ -1,4 +1,0 @@
-com\legendcf\user\service\controller\UserController.class
-com\legendcf\user\service\repository\UserRepository.class
-com\legendcf\user\service\UserApplication.class
-com\legendcf\user\service\config\JPAConfig.class
