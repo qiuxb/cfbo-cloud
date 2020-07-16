@@ -1,0 +1,43 @@
+server:
+  port: 9001
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://peer1:${server.port}/eureka
+    healthcheck:
+      enabled: true
+  server:
+    enable-self-preservation: true
+
+spring:
+  application:
+    name: cfbo-cloud-eureka-server
+  security:
+    user:
+      name: root
+      password: 1
+
+---
+spring:
+  profiles: peer1
+server:
+  port: 9001
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    serviceUrl:
+      defaultZone: http://root:1@peer2:9002/eureka
+---
+spring:
+  profiles: peer2
+server:
+  port: 9002
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    serviceUrl:
+      defaultZone: http://root:1@peer1:9001/eureka

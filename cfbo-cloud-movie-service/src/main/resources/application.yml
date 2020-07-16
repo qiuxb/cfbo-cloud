@@ -1,0 +1,22 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: @project.artifactId@
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+#      defaultZone: http://root:1@peer1:9001/eureka,http://root:1@peer2:9002/eureka
+      defaultZone: http://root:1@peer1:9001/eureka
+
+info:
+  app:
+    name: @project.artifactId@
+    encoding: @project.build.sourceEncoding@
+    java:
+      source: @java.version@
+      target: @java.version@
